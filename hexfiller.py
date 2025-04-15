@@ -2,10 +2,8 @@ import ida_bytes
 import idaapi
 import idc
 
-# 定义表单类：只包含起始地址和十六进制字符串两个输入
 class HexFillerForm(idaapi.Form):
     def __init__(self):
-        # 初始化字节串（填充数据）
         self.fill_bytes = b""
         # 默认起始地址使用当前光标所在地址
         self.start_address = idaapi.get_screen_ea()
@@ -48,7 +46,6 @@ r"""Hex Filler
             return self._validate_inputs()
         return 1
 
-# 定义插件类
 class HexFillerPlugin(idaapi.plugin_t):
     flags = idaapi.PLUGIN_UNL
     comment = "Auto fill segment with specified hex pattern"
